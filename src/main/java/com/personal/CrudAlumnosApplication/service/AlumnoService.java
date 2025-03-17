@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-/* qualifier : para tipo de per
-    alumnoDAOJdbc
-    alumnoDAOEnMemoria
-
- */
 @Service
 public class AlumnoService {
 
     private final AlumnoDAO alumnoDAO;
 
     @Autowired
+/*
+    qualifier : para tipo de persistencia
+        opcion 1 :  alumnoDAOJdbc
+        opcion 2 :  alumnoDAOEnMemoria
+ */
     public AlumnoService(@Qualifier("alumnoDAOJdbc") AlumnoDAO alumnoDAO) {
         this.alumnoDAO = alumnoDAO;
     }
