@@ -2,6 +2,7 @@ package com.personal.CrudAlumnosApplication.controller;
 
 import com.personal.CrudAlumnosApplication.model.Alumno;
 import com.personal.CrudAlumnosApplication.service.AlumnoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,10 @@ public class AlumnoController {
 
     private final AlumnoService alumnoService;
 
-    public AlumnoController() {
-        this.alumnoService = new AlumnoService();
+    // Inyección automática del servicio
+    @Autowired
+    public AlumnoController(AlumnoService alumnoService) {
+        this.alumnoService = alumnoService;
     }
 
     // Listar todos los alumnos
