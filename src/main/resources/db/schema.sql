@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS crud_alumnos;
+CREATE DATABASE IF NOT EXISTS crud_alumnos;
+USE crud_alumnos;
+
+CREATE TABLE IF NOT EXISTS alumnos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    nota1 DOUBLE NOT NULL,
+    nota2 DOUBLE NOT NULL,
+    nota3 DOUBLE NOT NULL,
+    notaFinal DOUBLE NOT NULL,
+    promedioFinal DOUBLE NOT NULL
+);
