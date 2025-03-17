@@ -18,7 +18,7 @@ public class AlumnoService {
         opcion 1 :  alumnoDAOJdbc
         opcion 2 :  alumnoDAOEnMemoria
  */
-    public AlumnoService(@Qualifier("alumnoDAOJdbc") AlumnoDAO alumnoDAO) {
+    public AlumnoService(@Qualifier("alumnoDAOEnMemoria") AlumnoDAO alumnoDAO) {
         this.alumnoDAO = alumnoDAO;
     }
 
