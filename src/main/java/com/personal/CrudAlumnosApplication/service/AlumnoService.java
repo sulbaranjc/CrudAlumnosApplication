@@ -2,18 +2,31 @@ package com.personal.CrudAlumnosApplication.service;
 
 import com.personal.CrudAlumnosApplication.model.Alumno;
 import com.personal.CrudAlumnosApplication.repository.AlumnoDAO;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+/* qualifier : para tipo de per
+    alumnoDAOJdbc
+    alumnoDAOEnMemoria
+
+ */
+@Service
 public class AlumnoService {
-    private final AlumnoDAO alumnoDAO = new AlumnoDAO();
+
+    private final AlumnoDAO alumnoDAO;
+
+    @Autowired
+    public AlumnoService(@Qualifier("alumnoDAOJdbc") AlumnoDAO alumnoDAO) {
+        this.alumnoDAO = alumnoDAO;
+    }
 
     public void guardarAlumno(Alumno alumno) {
-        alumno.setPromedioFinal(alumno.calcularPromedio());
         alumnoDAO.guardar(alumno);
     }
 
     public void actualizarAlumno(Alumno alumno) {
-        alumno.setPromedioFinal(alumno.calcularPromedio());
         alumnoDAO.actualizar(alumno);
     }
 
