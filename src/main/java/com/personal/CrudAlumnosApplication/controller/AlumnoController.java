@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/alumnos")
 public class AlumnoController {
 
     private final AlumnoService alumnoService;
@@ -19,29 +18,29 @@ public class AlumnoController {
         this.alumnoService = alumnoService;
     }
 
-    // Listar todos los alumnos
-    @GetMapping
+    // Listar todos los alumnos para "/" y "/alumnos"
+    @GetMapping({"/", "/alumnos"})
     public String listarAlumnos(Model model) {
         model.addAttribute("alumnos", alumnoService.listarTodosLosAlumnos());
         return "index";
     }
 
     // Mostrar formulario para agregar un nuevo alumno
-    @GetMapping("/nuevo")
+    @GetMapping("/alumnos/nuevo")
     public String mostrarFormulario(Model model) {
         model.addAttribute("alumno", new Alumno());
         return "form";
     }
 
     // Guardar un nuevo alumno
-    @PostMapping("/guardar")
+    @PostMapping("/alumnos/guardar")
     public String guardarAlumno(@ModelAttribute Alumno alumno) {
         alumnoService.guardarAlumno(alumno);
         return "redirect:/alumnos";
     }
 
     // Mostrar formulario para editar un alumno existente
-    @GetMapping("/editar/{id}")
+    @GetMapping("/alumnos/editar/{id}")
     public String mostrarFormularioEditar(@PathVariable int id, Model model) {
         Alumno alumno = alumnoService.obtenerAlumnoPorId(id);
         model.addAttribute("alumno", alumno);
@@ -49,14 +48,14 @@ public class AlumnoController {
     }
 
     // Actualizar un alumno existente
-    @PostMapping("/actualizar")
+    @PostMapping("/alumnos/actualizar")
     public String actualizarAlumno(@ModelAttribute Alumno alumno) {
         alumnoService.actualizarAlumno(alumno);
         return "redirect:/alumnos";
     }
 
     // Eliminar un alumno
-    @GetMapping("/eliminar/{id}")
+    @GetMapping("/alumnos/eliminar/{id}")
     public String eliminarAlumno(@PathVariable int id) {
         alumnoService.eliminarAlumno(id);
         return "redirect:/alumnos";
