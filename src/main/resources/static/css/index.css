@@ -1,0 +1,20 @@
+/* =========================================================
+   index.css — Solo estilos que Bootstrap NO puede cubrir
+   ========================================================= */
+
+/* --- Footer: alto mínimo fijo (~4 cm) --- */
+/* Bootstrap no tiene utilidad para min-height con valor personalizado */
+footer {
+    min-height: 60px;
+}
+
+/* --- Botón circular: tamaño y font-size fijos ---        */
+/* rounded-circle, d-inline-flex, align-items-center       */
+/* y justify-content-center se aplican como clases         */
+/* Bootstrap directamente en el HTML. Solo el tamaño       */
+/* exacto y el font-size requieren CSS personalizado.      */
+.btn-circle {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+}

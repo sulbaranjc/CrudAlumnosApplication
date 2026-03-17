@@ -1,0 +1,16 @@
+/* =========================================================
+   form.css — Solo estilos que Bootstrap NO puede cubrir
+   ========================================================= */
+
+/* --- Footer: alto mínimo fijo (~4 cm) --- */
+/* Bootstrap no tiene utilidad para min-height con valor personalizado */
+footer {
+    min-height: 60px;
+}
+
+/* --- Tarjeta del formulario: max-width personalizado --- */
+/* Bootstrap no tiene una clase de max-width de 600px exactos */
+.form-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
